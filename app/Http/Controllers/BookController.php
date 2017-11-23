@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Book;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+
 //use App\Http\Controllers\Book;
 
 class BookController extends Controller
@@ -46,12 +48,9 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-     public function show($id)
-     {
+     public function show($id) {
       //  return view('book', ['user' => User::findOrFail($id)]);
        return view('book', ['book' => Book::findOrFail($id)]);
-
-
      }
 
     /**
@@ -60,8 +59,7 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
@@ -72,8 +70,7 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         //
     }
 
@@ -83,14 +80,12 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
 
 
-    public function postForm(Request $request)
-  {
+    public function postForm(Request $request) {
       DB::table('books')->insert(array(
           'nom' => $request->input('nom'),
           'auteur' => $request->input('auteur'),
@@ -99,27 +94,26 @@ class BookController extends Controller
 
       ));
       return redirect()->back();
-  }
+    }
 
 
-  public function recupBook(){
-        $book = DB::table('books')->distinct()->paginate(5);
-        $links = $book->setPath('')->render();
+    public function recupBook() {
+          $book = DB::table('books')->distinct()->paginate(5);
+          $links = $book->setPath('')->render();
 
-    return view('book',['books'=>$book,'link'=>$links]);
-}
+      return view('book',['books'=>$book,'link'=>$links]);
+    }
 
-public function editBook(Request $request){
-    Book::where('id', $request->input('id_edit'))->update(['nom' => $request->input('book_rename')]);
-    return redirect()->back();
-}
+    public function editBook(Request $request){
+        Book::where('id', $request->input('id_edit'))->update(['nom' => $request->input('book_rename')]);
+        return redirect()->back();
+    }
 
-public function deleteBook(Request $request)
-{
+    public function deleteBook(Request $request) {
 
-    Book::where('id', $request->input('id_supp'))->delete();
-    return redirect()->back();
-}
+        Book::where('id', $request->input('id_supp'))->delete();
+        return redirect()->back();
+    }
 
 
 }
