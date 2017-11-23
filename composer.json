@@ -12,6 +12,8 @@
           "laravelcollective/html": "^5.4.0"
     },
     "require-dev": {
+        "squizlabs/php_codesniffer": "3.*",
+        "sebastianbergmann/phploc": "4.*",
         "behat/behat": "^3.4",
         "behat/mink": "^1.7",
         "behat/mink-extension": "^2.2",
