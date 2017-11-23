@@ -27,6 +27,9 @@ before_script:
   - wget https://phar.phpunit.de/phploc.phar
   - chmod +x phploc.phar
 
+  ## PHPCS
+
+
 script:
-  - phploc --version
+  - php phploc.phar ./
   - phpcs app/Http/Controllers/BookController.php
