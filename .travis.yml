@@ -11,6 +11,20 @@ notifications:
 
 before_script:
   - composer install
+    ## PHP_CodeSniffer
+  - pear install pear/PHP_CodeSniffer
+  - phpenv rehash
+  ## PHP Copy/Paste Detector
+  - curl -o phpcpd.phar https://phar.phpunit.de/phpcpd.phar
+  ## PHP Mess Detector
+  - pear config-set preferred_state beta
+  - printf "\n" | pecl install imagick
+  - pear channel-discover pear.phpmd.org
+  - pear channel-discover pear.pdepend.org
+  - pear install --alldeps phpmd/PHP_PMD
+  - phpenv rehash
+  ## PHPLOC
+  - curl -o phploc.phar https://phar.phpunit.de/phploc.phar
 
 script:
   - phploc ./
