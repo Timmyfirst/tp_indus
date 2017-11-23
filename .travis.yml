@@ -33,3 +33,6 @@ before_script:
 script:
   - php phploc.phar ./
   - phpcs app/Http/Controllers/BookController.php
+  - phpmd app/Http/Controllers/BookController.php text codesize
+  - pdepend --version
+  - phpcpd --version
