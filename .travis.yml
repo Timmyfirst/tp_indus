@@ -8,11 +8,3 @@ services:
 
 notifications:
   email: false
-
-group:
-  - stable
-
-dist:
-  - xenial
-
-os: linux
