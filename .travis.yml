@@ -27,5 +27,5 @@ before_script:
   - curl -o phploc.phar https://phar.phpunit.de/phploc.phar
 
 script:
-  - phploc ./
+  - phploc --version
   - phpcs app/Http/Controllers/BookController.php
