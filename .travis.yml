@@ -1,0 +1,14 @@
+language: php
+
+php:
+  - 7.0
+  - 7.1
+
+script:
+  - phpunit
+
+services:
+  - mysql
+
+notifications:
+  email: false
