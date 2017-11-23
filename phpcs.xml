@@ -5,5 +5,5 @@
  <file>tests</file>
   <exclude-pattern>*/migrations/*</exclude-pattern>
  <arg value="np"/>
-<rule ref="PSR1"/>
+<rule ref="PSR2"/>
 </ruleset>
