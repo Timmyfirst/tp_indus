@@ -103,7 +103,7 @@ class BookController extends Controller
 
 
   public function recupBook(){
-        $book = DB::table('books')->distinct()->paginate(5);
+        $bo5ok = DB::table('books')->distinct()->paginate(5);
         $links = $book->setPath('')->render();
 
     return view('book',['books'=>$book,'link'=>$links]);
